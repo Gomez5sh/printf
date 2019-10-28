@@ -12,14 +12,19 @@
 int _printf(const char *format, ...);
 
 /**
- * pr_input
- * @p: Pointer
- */
+ * type struct - structure.
+ * @pr_input: structur name.
+ * @letters: pointer.
+ * @p: pointer.
+ *
+ **/
 
 typedef struct pr_input
 {
-  char *leters;
-  void (*p)(va_list);
+	char *letters;
+	void (*p)();
 } p_let;
+
+
 
 #endif
