@@ -1,17 +1,20 @@
 #include "holberton.h"
 /**
- * p_d - Print integers when incoked
+ * f_int - print integers
  *@list: argument entered to print
- * Return: amount of integers printed
+ *
+ * Return: always
  */
 int f_int(va_list list)
 {
-	int n = va_arg(list, int);
-	int num, last = n % 10, digit, exp = 1;
-	int  i = 1;
 
+	int num, last, n, digit, exp, i;
+
+	n = va_arg(list, int);
+	last = n % 10;
 	n = n / 10;
 	num = n;
+	i = 1;
 
 	if (last < 0)
 	{
@@ -23,12 +26,14 @@ int f_int(va_list list)
 	}
 	if (num > 0)
 	{
+		exp = 1;
 		while (num / 10 != 0)
 		{
 			exp = exp * 10;
 			num = num / 10;
 		}
 		num = n;
+
 		while (exp > 0)
 		{
 			digit = num / exp;
