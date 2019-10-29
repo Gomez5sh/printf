@@ -1,9 +1,13 @@
 #include "holberton.h"
 
 /**
+ * _character - funtion name
+ * @list: variable
+ *
+ * Return: en 1
  */
 
-int _character(va_list list)
+int op_character(va_list list)
 {
 	char i;
 
@@ -11,7 +15,6 @@ int _character(va_list list)
 
 	if (i == 0)
 		return (0);
-	_putchar(ch);
-
+	_putchar(i);
 	return (1);
 }

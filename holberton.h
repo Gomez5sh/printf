@@ -8,9 +8,6 @@
 #include <string.h>
 #include <unistd.h>
 
-
-int _printf(const char *format, ...);
-
 /**
  * type struct - structure.
  * @pr_input: structur name.
@@ -18,13 +15,16 @@ int _printf(const char *format, ...);
  * @p: pointer.
  *
  **/
-
 typedef struct pr_input
 {
 	char *letters;
-	void (*p)();
+	int (*f)();
 } p_let;
 
 
-
+int _printf(const char *format, ...);
+int op_character(va_list list);
+int op_string(va_list list);
+int op_strlen_recursion(char *s);
+int _putchar(char c);
 #endif

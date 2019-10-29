@@ -9,33 +9,28 @@
 int _printf(const char *format, ...)
 {
 	p_let ops[] = {
-		{"c", _Character},
-		{"s", _string},
-		{"d", _decimal},
-		{"i", _integer}
+		{"c", op_character},
+		{"s", op_string},
+		{"d", op_decimal},
+		{"i", op_integer}
+                {NULL,NULL}
 	};
-	va_list s_list;
-	int i = 0;
-	int n;
+        va_list list;
+	int i = 0, n;
 	int strings;
 
-	va_start(s_list, format);
-	if (format == NULL && format[i + 1] == NULL)
+	va_start(list, format);
+	if (format == NULL)
 		return (-1);
-	if (va_arg == NULL)
-		return (6);
-	while (format[i] != '\0' && format[i] != NULL)
+	while ((format[i] != '\0') && (!format[i]))
 	{
-		if ((format[i] == '%') && (format[i + 1] == 'c' || 's' ||
-					   '%' || 'd' || 'i' ||))
+		if (format[i] == '%' && format[(i + 1)] == '\0')
 		{
-			i++;
 			n = 0;
-
-			while (n < 3)
+			while (ops[n].letters != NULL)
 			{
-				if (format[i] == ops[n].letters)
-					strings += ops[n].p(p_let);
+				if (format[(i + 1)] == ops[n].letters[0])
+					ops[n].f(list);
 				n++;
 			}
 		}
@@ -46,6 +41,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	write(1, format, i);
-	va_end(s_list);
+	va_end(list);
 	return (i);
 }
