@@ -11,12 +11,12 @@ int _printf(const char *format, ...)
 {
 	p_let array[] = {
 
-		{"c", _character},
-		{"s", _string},
-		{"\0", NULL},
+		{'c', _character},
+		{'s', _string},
+		{'\0', NULL}
 	};
 
-	int x, y, z;
+	int x = 0, y = 0, z = 0;
 	va_list list;
 
 	if (!format)
@@ -25,9 +25,6 @@ int _printf(const char *format, ...)
 	}
 	va_start(list, format);
 
-	x = 0;
-	z = 0;
-
 	if (x == 0 && format[x + 1] == '\0')
 		return (-1);
 
@@ -35,9 +32,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[x] != '%')
 		{
-			y = 0;
-
-			while (array[y].f != '\0')
+		 	while (array[y].p != '\0')
 			{
 				if (array[y].p == format[x + 1])
 				{
@@ -48,21 +43,21 @@ int _printf(const char *format, ...)
 				y++;
 			}
 
-			if (formar[x] == '%' && format[x + 1] == '%')
+			if (format[x] == '%' && format[x + 1] == '%')
 			{
 				_putchar('%');
 				x++;
 				z++;
 				break;
 			}
-			if (formar[x] == '%' && format[x + 1] == '\0')
+			if (format[x] == '%' && format[x + 1] == '\0')
 			{
 				_putchar('%');
 			}
 		}
 		else
 		{
-			_putchar(format[c1]);
+			_putchar(format[x]);
 			z++;
 		}
 		x++;
