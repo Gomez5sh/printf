@@ -1,46 +1,65 @@
 #include "holberton.h"
 /**
- * _printf - funtion to print
+ * _printf - function that produce putput according to a format.
+ *@format: char.
  *
- * @format: arguments
  *
- * Return: Pointer
+ * Return: Always.
  */
+
 int _printf(const char *format, ...)
 {
-	p_let ops[] = {
-		{"c", op_character},
-		{"s", op_string},
-		{"d", op_decimal},
-		{"i", op_integer}
-                {NULL,NULL}
+	p_let array[] = {
+
+		{'c', f_ch},
+		{'s', f_str},
+		{'d', f_int},
+		{'i', f_int},
+		{'\0', NULL},
+
 	};
-        va_list list;
-	int i = 0, n;
-	int strings;
+
+	int n = 0, y, len = 0;
+	va_list list;
 
 	va_start(list, format);
-	if (format == NULL)
-		return (-1);
-	while ((format[i] != '\0') && (!format[i]))
+
+	if (!format && format[n] == 0 && format[n + 1] == '\0')
+		return (-1); /* condition for not print in case of null */
+
+	while (format[n] != '\0') /*run format in position n */
 	{
-		if (format[i] == '%' && format[(i + 1)] == '\0')
+		n++;
+
+		if (format[n] == '%') /* in case of mod do this: */
 		{
-			n = 0;
-			while (ops[n].letters != NULL)
+			for (y = 0; array[y].p != '\0'; y++) /* run de array in position y */
+		{
+			if (array[y].p == format[n + 1]) /* if the array in y position in same which format in position n + 1 */
 			{
-				if (format[(i + 1)] == ops[n].letters[0])
-					ops[n].f(list);
+				len += array[y].ptr(list);
 				n++;
+				break; /*add 1 and this increases, when the loop ends, break the function*/
 			}
 		}
-		else
+			if (format[n] == '%' && format[n + 1] == '%') /* if format is equal to mod and format in the n position is equal to mod */
 		{
-			_putchar(format[i]);
-			strings++;
+			_putchar('%');
+			n++;
+			len++;
+			break; /* print and increase n an len, net break the funtion */
+		}
+			if (format[n] == '%' && format[n + 1] == '\0') /* if format in equal to mode in the n position and null en n potion + 1 */
+		{
+			_putchar('%'); /*if the condition is met print mod */
+		}
+		}
+		else /* else print format in the n position and increase len */
+		{
+			_putchar(format[n]);
+			len++;
 		}
 	}
-	write(1, format, i);
 	va_end(list);
-	return (i);
+	return (len);
 }

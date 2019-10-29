@@ -1,26 +1,24 @@
 #include "holberton.h"
 
 /**
- * string - funtion name
- * @list: variable
- *
- * Return: length
+ * f_str - string function
+ * @list: va_list
+ * Return: l.
  */
 
-int op_string(va_list list)
+int f_str(va_list list)
 {
 	char *string;
-	int y, l;
+	unsigned int y, l;
 
-	string = va_arg(list ,char *);
+	string = va_arg(list, char*);
 	if (string == NULL)
-	{
 		string = "(null)";
-	}
-	l = op_strlen_recursion(string);
+
+	l = _strlen_recursion(string);
 	for (y = 0; y < l; y++)
 	{
 		_putchar(string[y]);
 	}
-	return (1);
+	return (l);
 }

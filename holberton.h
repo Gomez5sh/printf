@@ -3,28 +3,30 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
+
+
+int _putchar(char c);
+int _printf(const char *format, ...);
+int f_ch(va_list list);
+int f_str(va_list list);
+int _strlen_recursion(char *s);
+int f_int(va_list list);
 
 /**
- * type struct - structure.
- * @pr_input: structur name.
- * @letters: pointer.
- * @p: pointer.
+ * struct argumentos - Typedef
+ *@p: char
+ *@ptr: pointer
  *
- **/
-typedef struct pr_input
+ */
+
+typedef struct argumentos
 {
-	char *letters;
-	int (*f)();
+	char p;
+	int (*ptr)(va_list);
 } p_let;
 
-
-int _printf(const char *format, ...);
-int op_character(va_list list);
-int op_string(va_list list);
-int op_strlen_recursion(char *s);
-int _putchar(char c);
 #endif
