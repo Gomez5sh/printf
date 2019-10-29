@@ -15,8 +15,7 @@ int _printf(const char *format, ...)
 		{'s', f_str},
 		{'d', f_int},
 		{'i', f_int},
-	        {'\0', NULL},
-
+		{'\0', NULL},
 	};
 
 	int x = 0, y, z = 0;
@@ -31,7 +30,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[x] == '%')
 		{
-		 	for (y = 0; array[y].p != '\0'; y++)
+			for (y = 0; array[y].p != '\0'; y++)
 			{
 				if (array[y].p == format[x + 1])
 				{
