@@ -10,9 +10,17 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int _character(va_list list);
-int _string(va_list list);
+int f_ch(va_list list);
+int f_str(va_list list);
 int _strlen_recursion(char *s);
+int f_int(va_list list);
+
+/**
+ * struct argumentos - Typedef
+ *@p: char
+ *@ptr: pointer
+ *
+ */
 
 typedef struct argumentos
 {
