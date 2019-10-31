@@ -14,6 +14,10 @@ int f_ch(va_list list);
 int f_str(va_list list);
 int _strlen_recursion(char *s);
 int f_int(va_list list);
+int f_oct(va_list list);
+int f_hex(va_list list);
+int f_base(unsigned int number, int base);
+int convert_num(va_list list, int base);
 
 /**
  * struct argumentos - Typedef
