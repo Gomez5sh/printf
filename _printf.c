@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 		{'s', f_str},
 		{'d', f_int},
 		{'i', f_int},
+		{'o', f_oct},
+		{'h', f_hex},
 		{'\0', NULL},
 	};
 
