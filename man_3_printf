@@ -1,0 +1,36 @@
+.TH _printf 3 "29 Oct 2019" "0.32" "_printf man page"
+
+.SH NAME
+
+.B _printf \
+
+.SH SYNOPSIS
+
+.B #include "holberton.h"
+
+.B _printf(const char *format, ...);
+
+.SH DESCRIPTION
+
+.B The function _printf() generate a output according to a format.
+.B This function is called with a va_list instead of a variable number of argumments.
+.B This function is call the va_end macro, becouse they invoke the va_arg macro.
+.B Each conversion specification is introduced by the character %, and end with a conversion specifier.
+
+.Char 
+.LP
+.RS 3
+.B %c
+.RS 3
+.String.
+.LP
+.RE
+.B %s
+.RS 3
+Decimal signed integer.
+.LP
+.RE
+.B %d, %i
+.RS 3
+.SH AUTHOR
+Sergio Quiroga - Emmanuel Gomez
